@@ -1,0 +1,18 @@
+// Default values
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+    color: rgb(var(--theme-dark));
+    background-color: rgb(var(--theme-light));
+    // Color palette (RGB)
+    --theme-dark: 0, 0, 0;
+    --theme-primary: 103, 54, 104;
+    --theme-secondary: 111, 34, 34;
+    --theme-complement: 255, 183, 209;
+    --theme-light: 255, 255, 255;
+}
