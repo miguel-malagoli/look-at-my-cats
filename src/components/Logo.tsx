@@ -8,7 +8,7 @@ type Color = 'light' | 'dark' | 'primary' | 'secondary' | 'complement';
 // ------------------
 // Must be given two colors, one of which fills the letters in "LOOK" and "MY" while the other fills th letters in "AT"
 // and "CATS". The colors must be one of the five defined in style.scss, reflected in the literal type Color
-const Logo = (props: {className?: string, colorOne: Color, colorTwo: Color}) => {
+const Logo = (props: {className?: string, colorOne: Color, colorTwo: Color, alt: string}) => {
 
     const c1: CSSProperties = { fill: 'rgb(var(--theme-' + props.colorOne + '))' };
     const c2: CSSProperties = { fill: 'rgb(var(--theme-' + props.colorTwo + '))' };
@@ -23,7 +23,10 @@ const Logo = (props: {className?: string, colorOne: Color, colorTwo: Color}) => 
             y="0px"
             viewBox="0 0 871.3 76.1"
             xmlSpace="preserve"
+            aria-labelledby="altTitle"
+            role="img"
         >
+            <title id="altTitle">{props.alt}</title>
             <polygon style={c1}
                 points="0.8,74.7 0.8,1.8 28.2,1.8 28.2,53.9 58,53.9 58,74.7 "/>
             <path style={c1}
