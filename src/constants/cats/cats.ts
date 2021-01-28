@@ -6,9 +6,11 @@ import BONNIE from "./bonnie";
 interface Cat {
     name: string,
     profileImg1: string,
+    profileAlt1: string,
     profileImg2: string,
+    profileAlt2: string
     introduction: {
-        [lang: string]: string
+        [lang: string]: string[]
     },
     stats: {
         agility: number,
@@ -25,7 +27,12 @@ interface Cat {
             description: string
         }
     },
-    gallery: string[]
+    gallery: {
+        [index: number]: {
+            image: string,
+            alt: string
+        }
+    }
 }
 
 const CATS: Cat[] = [KIWI, MUFFIN, CHANTI, BONNIE];

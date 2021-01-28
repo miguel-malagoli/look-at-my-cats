@@ -27,12 +27,12 @@ const Home = () => {
             <div className="home__feedback">
                 {CATS.map((cat: Cat, index: number) => { return (
                     <p className={'home__name' + (index === hoverItem ? ' home__name_visible' : '')} key={cat.name}>
-                    {cat.name.substr(0, 1)}
-                    <span className="home__highlight">
-                        {cat.name.substr(1, 1)}
-                    </span>
-                    {cat.name.substr(2)}
-                </p>
+                        {cat.name.substr(0, 1)}
+                        <span className="home__highlight">
+                            {cat.name.substr(1, 1)}
+                        </span>
+                        {cat.name.substr(2)}
+                    </p>
                 );})}
             </div>
             <ul className="home__list">

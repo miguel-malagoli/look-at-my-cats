@@ -5,7 +5,7 @@ import { Cat } from '../constants/cats/cats';
 // Import components
 import Logo from './Logo';
 
-const Profile = () => {
+const Profile = (props: {cat: Cat}) => {
     // State Hooks
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandLang, setExpandLang] = useState(false);
@@ -217,9 +217,32 @@ const Profile = () => {
             </div>
         </header>
         {/* INTRO Block */}
-        <main className="intro">
-
-        </main>
+        <section className="intro">
+            <div className="intro__fade">
+                <img
+                    className="intro__image"
+                    src={props.cat.profileImg1}
+                    alt={props.cat.profileAlt1}
+                />
+            </div>
+            <main className="intro__main">
+                <h1 className="intro__name">
+                    {props.cat.name.substr(0, 1)}
+                    <span className="intro__highlight">
+                        {props.cat.name.substr(1, 1)}
+                    </span>
+                    {props.cat.name.substr(2)}
+                </h1>
+                <div className="intro__text">
+                    {props.cat.introduction['pt'].map((paragraph: string) => {
+                        return <p className="intro__paragraph" key={paragraph}>{paragraph}</p>;
+                    })}
+                </div>
+                <button className="intro__button">
+                    View Gallery
+                </button>
+            </main>
+        </section>
         </>
     );
 }
