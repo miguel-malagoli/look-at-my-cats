@@ -1,34 +1,69 @@
-import { Cat } from "./cats";
+import { Cat } from "../cats";
 import profileImg1 from '../../images/bonnie/bonnieProfile.png';
 
 const BONNIE: Cat = {
     name: "Bonnie",
     profileImg1: profileImg1,
-    profileAlt1: "",
+    profileAlt1: {
+        ['pt']: "",
+        ['en']: ""
+    },
     profileImg2: "",
-    profileAlt2: "",
+    profileAlt2: {
+        ['pt']: "",
+        ['en']: ""
+    },
     introduction: {
         ['pt']: [
-            "Hac habitasse platea dictumst vestibulum rhoncus. Facilisis sed odio morbi quis commodo odio. Senectus et netus et malesuada fames. Interdum varius sit amet mattis vulputate enim nulla aliquet porttitor. Faucibus in ornare quam viverra orci sagittis eu volutpat odio. Ullamcorper morbi tincidunt ornare massa eget. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Neque convallis a cras semper auctor. Mauris vitae ultricies leo integer. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum lectus mauris ultrices eros. Eget lorem dolor sed viverra ipsum nunc aliquet. Sit amet dictum sit amet justo. Vestibulum sed arcu non odio euismod lacinia at quis. Sagittis id consectetur purus ut faucibus pulvinar elementum integer. Vestibulum morbi blandit cursus risus.",
-            "Ut lectus arcu bibendum at varius vel pharetra vel. Mi bibendum neque egestas congue quisque egestas diam in arcu. Rhoncus mattis rhoncus urna neque viverra. Ultrices in iaculis nunc sed. Sit amet massa vitae tortor condimentum lacinia quis vel. Vestibulum lorem sed risus ultricies. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum.",
+            "Hac habitasse platea dictumst vestibulum rhoncus. Facilisis sed odio morbi quis commodo odio. Senectus et netus et malesuada fames. Interdum varius sit amet mattis vulputate enim nulla aliquet porttitor. Faucibus in ornare quam viverra orci sagittis eu volutpat odio. Ullamcorper morbi tincidunt ornare massa eget.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum lectus mauris ultrices eros. Eget lorem dolor sed viverra ipsum nunc aliquet."
         ],
         ['en']: [
-            "Hac habitasse platea dictumst vestibulum rhoncus. Facilisis sed odio morbi quis commodo odio. Senectus et netus et malesuada fames. Interdum varius sit amet mattis vulputate enim nulla aliquet porttitor. Faucibus in ornare quam viverra orci sagittis eu volutpat odio. Ullamcorper morbi tincidunt ornare massa eget. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Neque convallis a cras semper auctor. Mauris vitae ultricies leo integer. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum lectus mauris ultrices eros. Eget lorem dolor sed viverra ipsum nunc aliquet. Sit amet dictum sit amet justo. Vestibulum sed arcu non odio euismod lacinia at quis. Sagittis id consectetur purus ut faucibus pulvinar elementum integer. Vestibulum morbi blandit cursus risus.",
-            "Ut lectus arcu bibendum at varius vel pharetra vel. Mi bibendum neque egestas congue quisque egestas diam in arcu. Rhoncus mattis rhoncus urna neque viverra. Ultrices in iaculis nunc sed. Sit amet massa vitae tortor condimentum lacinia quis vel. Vestibulum lorem sed risus ultricies. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum.",
-        ],
+            "Hac habitasse platea dictumst vestibulum rhoncus. Facilisis sed odio morbi quis commodo odio. Senectus et netus et malesuada fames. Interdum varius sit amet mattis vulputate enim nulla aliquet porttitor. Faucibus in ornare quam viverra orci sagittis eu volutpat odio. Ullamcorper morbi tincidunt ornare massa eget.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum lectus mauris ultrices eros. Eget lorem dolor sed viverra ipsum nunc aliquet."
+        ]
     },
     stats: {
-        agility: 0,
-        intelligence: 0,
-        charisma: 0
+        ["agility"]: {
+            score: 4,
+            description: {
+                ['pt']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+                ['en']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+            }
+        },
+        ["intelligence"]: {
+            score: 1,
+            description: {
+                ['pt']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+                ['en']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+            }
+        },
+        ["charisma"]: {
+            score: 5,
+            description: {
+                ['pt']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+                ['en']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+            }
+        },
     },
     alignment: {
         x: 0,
-        y: 0
+        y: 0,
+        description: {
+            ['pt']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+            ['en']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+        }
     },
-    ability: {},
+    ability: {
+        ["pt"]: {
+            name: "",
+            description: ""
+        },
+        ["en"]: {
+            name: "",
+            description: ""
+        }
+    },
     gallery: []
 }
 

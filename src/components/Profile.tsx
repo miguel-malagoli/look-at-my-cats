@@ -1,7 +1,7 @@
 // Import React
 import React, { useEffect, useState } from 'react';
 // Import constants
-import { Cat } from '../constants/cats/cats';
+import { ALIGN_RANGE, Cat, StatName, STAT_NAMES, STAT_RANGE } from '../constants/cats';
 // Import components
 import Logo from './Logo';
 
@@ -11,6 +11,7 @@ const Profile = (props: {cat: Cat}) => {
     const [expandLang, setExpandLang] = useState(false);
     const [popHeader, setPopHeader] = useState(false);
     const [scrollTop, setScrollTop] = useState(0);
+    const [infoTrigger, setInfotrigger] = useState<'hover' | 'focus'>('hover');
     // Effect Hooks
     useEffect(() => {
         // Window scroll event
@@ -222,7 +223,7 @@ const Profile = (props: {cat: Cat}) => {
                 <img
                     className="intro__image"
                     src={props.cat.profileImg1}
-                    alt={props.cat.profileAlt1}
+                    alt={props.cat.profileAlt1['pt']}
                 />
             </div>
             <main className="intro__main">
@@ -242,6 +243,127 @@ const Profile = (props: {cat: Cat}) => {
                     View Gallery
                 </button>
             </main>
+        </section>
+        {/* STATS Block */}
+        <section className="stats">
+            {/* Cosmetic background */}
+            <div className="stats__background">
+                <svg className="stats__print" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1346 1363.3" xmlSpace="preserve">
+                    <path d="M875.7,799.8c-23.2-116.5-103.2-212-213.8-255.3c-110.7-43.3-234.1-27.5-330.3,42.3L99.8,755
+                    c-38.5,27.9-66.3,66.6-80.6,111.9c-14.3,45.3-13.6,93,2,137.9c15.6,44.9,44.6,82.8,83.9,109.5c39.3,26.8,85.2,39.9,132.7,37.9
+                    l3.2-0.1c119.2-4,235.5,42,319.7,126.6c21.7,21.8,47.2,38.5,75.3,49.5c15.2,6,31.3,10.3,47.8,12.7c47,7,94-1.1,136-23.4
+                    c41.9-22.4,74.8-56.9,95.2-99.9c20.3-43,26.2-90.3,16.9-136.9L875.7,799.8z"/>
+                    <path d="M169,534.3c18,7.1,37.4,10.9,57.5,11c49.2,0.3,95.3-21.4,129.6-61.3c32.7-37.9,50.8-88,51.1-141.2
+                    c0.3-53.1-17.3-103.4-49.5-141.7c-33.9-40.2-79.6-62.5-128.8-62.8c-98.9-0.6-180,90.2-180.7,202.5C47.8,430.3,98.4,506.6,169,534.3z
+                    "/>
+                    <path d="M574.6,478.8c107.5,42.1,234-23.3,281.9-145.8c48-122.5-0.5-256.4-108-298.5C641-7.6,514.6,57.9,466.6,180.4
+                    C418.7,302.8,467.1,436.7,574.6,478.8z"/>
+                    <path d="M1177.6,620.2c36.6-43.9,56.3-97.7,55.7-151.5c-0.6-56.3-23.3-105.8-63.7-139.5c-40.5-33.7-93.3-46.9-148.8-37.3
+                    c-53,9.2-102.3,38.4-138.8,82.3c-77.1,92.6-73.5,223.2,8,291l0,0c14.4,12,30.2,21.2,47,27.8C1015.4,723.6,1114.1,696.5,1177.6,620.2
+                    z"/>
+                    <path d="M1310.6,799.9c-52.7-83.8-172.8-103.4-267.9-43.8c-95,59.7-129.5,176.4-76.9,260.2c19.2,30.6,47.3,52.6,80,65.4
+                    c56.9,22.3,127.5,16.4,187.9-21.5C1328.7,1000.5,1363.2,883.7,1310.6,799.9L1310.6,799.9z"/>
+                </svg>
+                <svg className="stats__ellipse" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2581.7 2587" xmlSpace="preserve">
+                    <path d="M1291.2,2419c-95.6,0-188.5-12-277.1-34.4l-40.9,160.9c101.7,25.8,208.3,39.5,318,39.5c500.2,0,933.9-284.6,1148.1-700.6
+                        l-147.6-76C2105,2171,1727.1,2419,1291.2,2419z"/>
+                    <path d="M2202.3,380.6l-117.2,117.6c204.2,203.6,330.6,485.2,330.6,796.3c0,150.7-29.7,294.6-83.5,425.9l153.6,63
+                        c61.8-150.8,95.8-315.9,95.8-488.9C2581.7,937.4,2436.7,614.2,2202.3,380.6z"/>
+                    <g>
+                        <path d="M166.7,1294.5c0-321,134.5-610.5,350.2-815.4L402.5,358.8C155,593.9,0.7,926.2,0.7,1294.5c0,564,361.9,1043.5,866.1,1219.1
+                            l54.6-156.8C482,2203.7,166.7,1785.9,166.7,1294.5z"/>
+                        <path d="M1291.2,4c-304.4,0-584.3,105.5-805,281.8l103.6,129.7C782.2,261.9,1026,170,1291.2,170c275,0,527,98.8,722.4,262.8
+                            l106.7-127.2C1896.1,117.4,1606.9,4,1291.2,4z"/>
+                    </g>
+                </svg>
+            </div>
+            <button className="stats__jump">
+                <svg className="stats__arrow" width="16" height="18" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M0.318191 7.04843L7.23182 0.31012C7.65607 -0.103376
+                    8.34393 -0.103376 8.76818 0.31012L15.6818 7.04843C16.1061 7.46193 16.1061 8.13234 15.6818 8.54584C15.2576
+                    8.95933 14.5697 8.95933 14.1454 8.54584L9.08637 3.61505V18H6.91363V3.61505L1.85455 8.54584C1.4303 8.95933
+                    0.742446 8.95933 0.318191 8.54584C-0.106064 8.13234 -0.106064 7.46193 0.318191 7.04843Z" />
+                </svg>
+            </button>
+            <div className="stats__flex">
+                {/* Attributes */}
+                <dl className="stats__scoreSheet">
+                    {STAT_NAMES.map((name: StatName) => { return (
+                        <div
+                            className={'stats__score stats__score_trigger_' + infoTrigger}
+                            onMouseEnter={() => {setInfotrigger('hover')}}
+                            onFocus={() => {setInfotrigger('focus')}}
+                            tabIndex={0}
+                            key={name}
+                            >
+                            <dt className="stats__term">{name}</dt>
+                            <dd className="stats__value">
+                                {STAT_RANGE.map((stat: number) => { return (
+                                    <span className={
+                                        'stats__dot' +
+                                        (stat === props.cat.stats[name].score ? ' stats__dot_active' :
+                                        (stat < props.cat.stats[name].score ? ' stats__dot_clear' : ''))
+                                        }
+                                        aria-hidden={!(stat === props.cat.stats[name].score)}
+                                        key={stat}
+                                        >
+                                        {stat}
+                                    </span>
+                                );})}
+                            </dd>
+                            <p className="stats__info">
+                                {props.cat.stats[name].description['pt']}
+                            </p>
+                        </div>
+                    );})}
+                </dl>
+                {/* Alignment */}
+                <div className="stats__alignFlex">
+                    <div
+                        className={'stats__alignment stats__alignment_trigger_' + infoTrigger}
+                        onMouseEnter={() => {setInfotrigger('hover')}}
+                        onFocus={() => {setInfotrigger('focus')}}
+                        tabIndex={0}
+                        >
+                        <div className="stats__grid">
+                            {ALIGN_RANGE.map((alignX: number) => { return (
+                                ALIGN_RANGE.map((alignY: number) => { return (
+                                    <span
+                                        className={'stats__alignDot' +
+                                        (alignX === props.cat.alignment.x ? ' stats__alignDot_matchX' : '') +
+                                        (alignY === props.cat.alignment.y ? ' stats__alignDot_matchY' : '')}
+                                    ></span>
+                                );})
+                            );})}
+                        </div>
+                        <label className="stats__alignLabel">Alignment</label>
+                        <span className="stats__alignName">Lawful Neutral</span>
+                        <p className="stats__alignText">{props.cat.alignment.description['pt']}</p>
+                    </div>
+                </div>
+                {/* Image */}
+                <div className="stats__portrait">
+                    <img
+                        className="stats__image"
+                        src={props.cat.profileImg2}
+                        alt={props.cat.profileAlt2['pt']}
+                    />
+                </div>
+                {/* Ability */}
+                <div className="stats__abilityFlex">
+                    <div
+                        className={'stats__ability stats__ability_trigger_' + infoTrigger}
+                        onMouseEnter={() => {setInfotrigger('hover')}}
+                        onFocus={() => {setInfotrigger('focus')}}
+                        tabIndex={0}
+                        >
+                        <label className="stats__abilityName">Ability - {props.cat.ability['pt'].name}</label>
+                        <p className="stats__abilityText">{props.cat.ability['pt'].description}</p>
+                    </div>
+                </div>
+            </div>
         </section>
         </>
     );

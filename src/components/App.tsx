@@ -1,5 +1,5 @@
 import React from 'react';
-import CATS from '../constants/cats/cats';
+import CATS from '../constants/cats';
 
 import Home from './Home';
 import Profile from './Profile';

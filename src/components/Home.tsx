@@ -1,7 +1,7 @@
 // Import React
 import React, { useState } from 'react';
 // Import constants
-import CATS, { Cat } from '../constants/cats/cats';
+import CATS, { Cat } from '../constants/cats';
 // Import components
 import Logo from './Logo';
 
