@@ -64,7 +64,50 @@ const CHANTI: Cat = {
             description: ""
         }
     },
-    gallery: []
+    gallery: {
+        ['one']: {
+            image: "",
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['two']: {
+            image: "",
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['three']: {
+            image: "",
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['four']: {
+            image: "",
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['five']: {
+            image: "",
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['six']: {
+            image: "",
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        }
+    }
 }
 
 export default CHANTI;

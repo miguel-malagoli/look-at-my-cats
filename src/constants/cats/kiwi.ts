@@ -1,6 +1,12 @@
 import { Cat } from "../cats";
 import profileImg1 from '../../images/kiwi/kiwiProfile.png';
 import profileImg2 from '../../images/kiwi/kiwi7-01.jpg';
+import gallery1 from '../../images/kiwi/kiwi1-01.jpg';
+import gallery2 from '../../images/kiwi/kiwi3-01.jpg';
+import gallery3 from '../../images/kiwi/kiwi5-01.jpg';
+import gallery4 from '../../images/kiwi/kiwi8-01.jpg';
+import gallery5 from '../../images/kiwi/kiwi10-01.jpg';
+import gallery6 from '../../images/kiwi/kiwi11-01.jpg';
 
 const KIWI: Cat = {
     name: "Kiwi",
@@ -65,7 +71,50 @@ const KIWI: Cat = {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum lectus mauris ultrices eros. Eget lorem dolor sed viverra ipsum nunc aliquet."
         }
     },
-    gallery: []
+    gallery: {
+        ['one']: {
+            image: gallery1,
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['two']: {
+            image: gallery2,
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['three']: {
+            image: gallery3,
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['four']: {
+            image: gallery4,
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['five']: {
+            image: gallery5,
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        },
+        ['six']: {
+            image: gallery6,
+            alt: {
+                ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        }
+    }
 }
 
 export default KIWI;

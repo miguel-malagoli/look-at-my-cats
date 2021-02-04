@@ -1,7 +1,7 @@
 // Import React
 import React, { useEffect, useState } from 'react';
 // Import constants
-import { ALIGN_RANGE, Cat, StatName, STAT_NAMES, STAT_RANGE } from '../constants/cats';
+import { ALIGN_RANGE, Cat, GalleryRange, GALLERY_RANGE, StatName, STAT_NAMES, STAT_RANGE } from '../constants/cats';
 // Import components
 import Logo from './Logo';
 
@@ -12,6 +12,7 @@ const Profile = (props: {cat: Cat}) => {
     const [popHeader, setPopHeader] = useState(false);
     const [scrollTop, setScrollTop] = useState(0);
     const [infoTrigger, setInfotrigger] = useState<'hover' | 'focus'>('hover');
+    const [selectedImage, setSelectedImage] = useState<GalleryRange>('one');
     // Effect Hooks
     useEffect(() => {
         // Window scroll event
@@ -287,6 +288,7 @@ const Profile = (props: {cat: Cat}) => {
                     0.742446 8.95933 0.318191 8.54584C-0.106064 8.13234 -0.106064 7.46193 0.318191 7.04843Z" />
                 </svg>
             </button>
+            <p className="stats__instruction">Touch or hover a stat for more info</p>
             <div className="stats__flex">
                 {/* Attributes */}
                 <dl className="stats__scoreSheet">
@@ -334,6 +336,7 @@ const Profile = (props: {cat: Cat}) => {
                                         className={'stats__alignDot' +
                                         (alignX === props.cat.alignment.x ? ' stats__alignDot_matchX' : '') +
                                         (alignY === props.cat.alignment.y ? ' stats__alignDot_matchY' : '')}
+                                        key={alignX.toString() + alignY.toString()}
                                     ></span>
                                 );})
                             );})}
@@ -362,6 +365,54 @@ const Profile = (props: {cat: Cat}) => {
                         <label className="stats__abilityName">Ability - {props.cat.ability['pt'].name}</label>
                         <p className="stats__abilityText">{props.cat.ability['pt'].description}</p>
                     </div>
+                </div>
+            </div>
+        </section>
+        {/* GALLERY Block */}
+        <section className="gallery">
+            <div className="gallery__background"></div>
+            <div className="gallery__flex">
+                {/* Title - Only visible on small screens */}
+                <h2 className="gallery__titleTop">
+                    G<span className="gallery__highlight">a</span>llery
+                </h2>
+                <p className="gallery__subtitle">Swipe or use the buttons to cycle images</p>
+                {/* Item grid - Only visible on large screens */}
+                <div className="gallery__grid">
+                    <h2 className="gallery__titleMiddle">
+                        G<span className="gallery__highlight">a</span>llery
+                    </h2>
+                    {GALLERY_RANGE.map((area: GalleryRange) => { return (
+                        <button
+                            className={'gallery__item' + (area === selectedImage ? ' gallery__item_selected' : '')}
+                            key={area}
+                            onClick={() => {setSelectedImage(area)}}
+                            style={{gridArea: area}}
+                            >
+                            <img
+                                className="gallery__preview"
+                                src={props.cat.gallery[area].image}
+                                alt={props.cat.gallery[area].alt['pt']}
+                            />
+                        </button>
+                    );})}
+                </div>
+                {/* Image display - Visible on any screen */}
+                <div className="gallery__display">
+                    <img
+                        className="gallery__image"
+                        src={props.cat.gallery[selectedImage].image}
+                        alt={props.cat.gallery[selectedImage].alt['pt']}
+                    />
+                </div>
+                {/* Image navigation - Only visible on small screens */}
+                <div className="gallery__nav">
+                    <button className="gallery__button gallery__button_left">
+                        Back
+                    </button>
+                    <button className="gallery__button gallery__button_right">
+                        Next
+                    </button>
                 </div>
             </div>
         </section>
