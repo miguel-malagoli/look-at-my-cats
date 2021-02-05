@@ -127,11 +127,10 @@ const Profile = (props: {cat: Cat}) => {
                 />
                 {/* Header buttons for large screens */}
                 <div className={'header__actions' + ((expandHeader || scrollTop > 0) ? ' header__actions_open' : '')}>
-                    <button
+                    <div
                         className="header__button"
                         tabIndex={(expandHeader || scrollTop > 0) ? 0 : -1}
-                        disabled={(expandHeader || scrollTop > 0) === false}
-                        onClick={() => {setExpandLang(!expandLang)}}
+                        onClick={() => {if (expandHeader || scrollTop > 0) setExpandLang(!expandLang)}}
                         >
                         <svg className="header__svg" width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.164 6.42091C10.2208 6.2 10.2557 6.03364 10.2878 5.87091L9.27942 5.67636L9.1795
@@ -178,7 +177,7 @@ const Profile = (props: {cat: Cat}) => {
                                 English
                             </button>
                         </div>
-                    </button>
+                    </div>
                     <button
                         className="header__button"
                         tabIndex={(expandHeader || scrollTop > 0) ? 0 : -1}
