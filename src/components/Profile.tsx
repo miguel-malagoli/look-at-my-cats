@@ -416,6 +416,112 @@ const Profile = (props: {cat: Cat}) => {
                 </div>
             </div>
         </section>
+        {/* FOOTER Block */}
+        <footer className="footer">
+            <svg className="footer__ellipse" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2581.7 2587" xmlSpace="preserve">
+                <path d="M1291.2,2419c-95.6,0-188.5-12-277.1-34.4l-40.9,160.9c101.7,25.8,208.3,39.5,318,39.5c500.2,0,933.9-284.6,1148.1-700.6
+                    l-147.6-76C2105,2171,1727.1,2419,1291.2,2419z"/>
+                <path d="M2202.3,380.6l-117.2,117.6c204.2,203.6,330.6,485.2,330.6,796.3c0,150.7-29.7,294.6-83.5,425.9l153.6,63
+                    c61.8-150.8,95.8-315.9,95.8-488.9C2581.7,937.4,2436.7,614.2,2202.3,380.6z"/>
+                <g>
+                    <path d="M166.7,1294.5c0-321,134.5-610.5,350.2-815.4L402.5,358.8C155,593.9,0.7,926.2,0.7,1294.5c0,564,361.9,1043.5,866.1,1219.1
+                        l54.6-156.8C482,2203.7,166.7,1785.9,166.7,1294.5z"/>
+                    <path d="M1291.2,4c-304.4,0-584.3,105.5-805,281.8l103.6,129.7C782.2,261.9,1026,170,1291.2,170c275,0,527,98.8,722.4,262.8
+                        l106.7-127.2C1896.1,117.4,1606.9,4,1291.2,4z"/>
+                </g>
+            </svg>
+            <div className="footer__flex">
+                <div className="footer__main">
+                    <Logo
+                        className="footer__logo"
+                        colorOne="dark"
+                        colorTwo="light"
+                        alt="Look At My Cats"
+                    />
+                    <span className="footer__credit">by Miguel Malagoli</span>
+                    <span className="footer__check">Check out the project on...</span>
+                    <nav className="footer__nav">
+                        <a
+                            className="footer__link"
+                            href="https://linkedin.com"
+                            target="_blank"
+                            tabIndex={-1}
+                            >
+                            <button
+                                className="footer__button"
+                            >
+                                <svg className="footer__svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M8.84 10.835h-1.965v-1.859h1.783c1.878 0 1.646 1.859.182 1.859zm5.789
+                                    1.058h2.624c-.115-1.687-2.36-1.81-2.624 0zm-5.9.396h-1.854v1.947h1.824c1.782-.001
+                                    1.673-1.947.03-1.947zm15.271-.289c0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12
+                                    12-12 12 5.373 12 12zm-13.357-.733c1.668-.853 1.607-3.981-1.587-4.028h-4.056v8.73h3.771c3.958
+                                    0 3.891-3.967 1.872-4.702zm3.357-3.166h4v-.875h-4v.875zm4.943
+                                    3.693c-.545-3.505-6.053-3.711-6.053.872 0 4.526 5.18 3.818 5.949
+                                    1.56h-1.848c-.645.748-2.508.531-2.404-1.184h4.41c.009-.555-.009-.953-.054-1.248z"/>
+                                </svg>
+                                <span className="footer__label">Behance</span>
+                            </button>
+                        </a>
+                        <a
+                            className="footer__link"
+                            href="https://linkedin.com"
+                            target="_blank"
+                            tabIndex={-1}
+                            >
+                            <button
+                                className="footer__button"
+                            >
+                                <svg className="footer__svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207
+                                    11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729
+                                    1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304
+                                    3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931
+                                    0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322
+                                    3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552
+                                    3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221
+                                    0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576
+                                    4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                <span className="footer__label">GitHub</span>
+                            </button>
+                        </a>
+                        <a
+                            className="footer__link"
+                            href="https://linkedin.com"
+                            target="_blank"
+                            tabIndex={-1}
+                            >
+                            <button
+                                className="footer__button"
+                            >
+                                <svg className="footer__svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" xmlSpace="preserve">
+                                    <g>
+                                        <path d="M12,12c0-1.5,1.2-2.7,2.7-2.7H12V12z"/>
+                                        <path d="M12,0C5.4,0,0,5.4,0,12c0,6.6,5.4,12,12,12s12-5.4,12-12C24,5.4,18.6,0,12,0z M17.3,12c0,1.5-1.2,2.7-2.7,2.7
+                                            c-1.5,0-2.7-1.2-2.7-2.7v2.7v2.7c0,1.5-1.2,2.7-2.7,2.7c-1.5,0-2.7-1.2-2.7-2.7s1.2-2.7,2.7-2.7c-1.5,0-2.7-1.2-2.7-2.7
+                                            s1.2-2.7,2.7-2.7c-1.5,0-2.7-1.2-2.7-2.7C6.7,5.2,7.9,4,9.3,4H12h2.7c1.5,0,2.7,1.2,2.7,2.7c0,1.5-1.2,2.7-2.7,2.7
+                                            C16.1,9.3,17.3,10.5,17.3,12z"/>
+                                    </g>
+                                </svg>
+                                <span className="footer__label">Figma</span>
+                            </button>
+                        </a>
+                    </nav>
+                </div>
+                <button className="footer__back">
+                    <svg className="footer__backSvg" width="16" height="18" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M0.318191 7.04843L7.23182 0.31012C7.65607
+                        -0.103376 8.34393 -0.103376 8.76818 0.31012L15.6818 7.04843C16.1061 7.46193 16.1061 8.13234
+                        15.6818 8.54584C15.2576 8.95933 14.5697 8.95933 14.1454 8.54584L9.08637
+                        3.61505V18H6.91363V3.61505L1.85455 8.54584C1.4303 8.95933 0.742446 8.95933 0.318191
+                        8.54584C-0.106064 8.13234 -0.106064 7.46193 0.318191 7.04843Z" />
+                    </svg>
+                    <span className="footer__backLabel">Back to Top</span>
+                </button>
+            </div>
+        </footer>
         </>
     );
 }
