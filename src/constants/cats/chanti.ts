@@ -1,5 +1,12 @@
 import { Cat } from "../cats";
 import profileImg1 from '../../images/chanti/chantiProfile.png';
+import profileImg2 from '../../images/chanti/chanti4-01.jpg';
+import gallery1 from '../../images/chanti/chanti1-01.jpg';
+import gallery2 from '../../images/chanti/chanti2-01.jpg';
+import gallery3 from '../../images/chanti/chanti3-01.jpg';
+import gallery4 from '../../images/chanti/chanti8-01.jpg';
+import gallery5 from '../../images/chanti/chanti9-01.jpg';
+import gallery6 from '../../images/chanti/chanti10-01.jpg';
 
 const CHANTI: Cat = {
     name: "Chanti",
@@ -8,7 +15,7 @@ const CHANTI: Cat = {
         ['pt']: "",
         ['en']: ""
     },
-    profileImg2: "",
+    profileImg2: profileImg2,
     profileAlt2: {
         ['pt']: "",
         ['en']: ""
@@ -25,21 +32,21 @@ const CHANTI: Cat = {
     },
     stats: {
         ["agility"]: {
-            score: 4,
+            score: 3,
             description: {
                 ['pt']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
                 ['en']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
             }
         },
         ["intelligence"]: {
-            score: 1,
+            score: 4,
             description: {
                 ['pt']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
                 ['en']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
             }
         },
         ["charisma"]: {
-            score: 5,
+            score: 2,
             description: {
                 ['pt']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
                 ['en']: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
@@ -66,42 +73,42 @@ const CHANTI: Cat = {
     },
     gallery: {
         ['one']: {
-            image: "",
+            image: gallery1,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['two']: {
-            image: "",
+            image: gallery2,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['three']: {
-            image: "",
+            image: gallery3,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['four']: {
-            image: "",
+            image: gallery4,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['five']: {
-            image: "",
+            image: gallery5,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['six']: {
-            image: "",
+            image: gallery6,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"

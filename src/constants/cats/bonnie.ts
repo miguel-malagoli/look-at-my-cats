@@ -1,5 +1,12 @@
 import { Cat } from "../cats";
 import profileImg1 from '../../images/bonnie/bonnieProfile.png';
+import profileImg2 from '../../images/bonnie/bonnie8-01.jpg';
+import gallery1 from '../../images/bonnie/bonnie10-01.jpg';
+import gallery2 from '../../images/bonnie/bonnie2-01.jpg';
+import gallery3 from '../../images/bonnie/bonnie3-01.jpg';
+import gallery4 from '../../images/bonnie/bonnie4-01.jpg';
+import gallery5 from '../../images/bonnie/bonnie5-01.jpg';
+import gallery6 from '../../images/bonnie/bonnie7-01.jpg';
 
 const BONNIE: Cat = {
     name: "Bonnie",
@@ -8,7 +15,7 @@ const BONNIE: Cat = {
         ['pt']: "",
         ['en']: ""
     },
-    profileImg2: "",
+    profileImg2: profileImg2,
     profileAlt2: {
         ['pt']: "",
         ['en']: ""
@@ -66,42 +73,42 @@ const BONNIE: Cat = {
     },
     gallery: {
         ['one']: {
-            image: "",
+            image: gallery1,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['two']: {
-            image: "",
+            image: gallery2,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['three']: {
-            image: "",
+            image: gallery3,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['four']: {
-            image: "",
+            image: gallery4,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['five']: {
-            image: "",
+            image: gallery5,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             }
         },
         ['six']: {
-            image: "",
+            image: gallery6,
             alt: {
                 ["pt"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 ["en"]: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"

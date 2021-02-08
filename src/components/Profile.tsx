@@ -5,7 +5,7 @@ import { ALIGN_RANGE, Cat, GalleryRange, GALLERY_RANGE, StatName, STAT_NAMES, ST
 // Import components
 import Logo from './Logo';
 
-const Profile = (props: {cat: Cat}) => {
+const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
     // State Hooks
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandLang, setExpandLang] = useState(false);
@@ -108,6 +108,7 @@ const Profile = (props: {cat: Cat}) => {
                     className="header__button"
                     tabIndex={(expandHeader ? 0 : -1)}
                     disabled={!expandHeader}
+                    onClick={() => {props.deselect(undefined)}}
                     >
                     <svg className="header__svg" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.5 10.8333V19.1666H12.5V14.1666H7.5V19.1666H2.5V10.8333H0L10 0.833313L20
@@ -175,6 +176,7 @@ const Profile = (props: {cat: Cat}) => {
                     colorOne="dark"
                     colorTwo="primary"
                     alt="Look At My Cats"
+                    onClick={() => {props.deselect(undefined)}}
                 />
                 {/* Header buttons for large screens */}
                 <div className={'header__actions' + ((expandHeader || scrollTop > 0) ? ' header__actions_open' : '')}>
@@ -233,6 +235,7 @@ const Profile = (props: {cat: Cat}) => {
                         className="header__button"
                         tabIndex={(expandHeader || scrollTop > 0) ? 0 : -1}
                         disabled={(expandHeader || scrollTop > 0) === false}
+                        onClick={() => {props.deselect(undefined)}}
                         >
                         <svg className="header__svg" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.5 10.8333V19.1666H12.5V14.1666H7.5V19.1666H2.5V10.8333H0L10 0.833313L20

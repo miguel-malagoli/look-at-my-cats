@@ -6,10 +6,10 @@ import CATS, { Cat } from '../constants/cats';
 import Logo from './Logo';
 
 // Home component
-const Home = () => {
-
+const Home = (props: {handleCat: (index: number) => void}) => {
+    // State Hooks
     const [hoverItem, setHoverItem] = useState(-1);
-
+    // Render
     return (
         <main className="home">
             <div className="home__title">
@@ -43,7 +43,9 @@ const Home = () => {
                             onMouseEnter={() => {setHoverItem(index)}}
                             onFocus={() => {setHoverItem(index)}}
                             onMouseLeave={() => {setHoverItem(-1)}}
-                            onBlur={() => {setHoverItem(-1)}}>
+                            onBlur={() => {setHoverItem(-1)}}
+                            onClick={() => {props.handleCat(index)}}
+                            >
                             <img
                                 className="home__photo"
                                 src={cat.profileImg1}
