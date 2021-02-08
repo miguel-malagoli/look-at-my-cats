@@ -1,5 +1,5 @@
 // Import React
-import React, { useEffect, useState } from 'react';
+import React, { RefObject, TouchEvent, useEffect, useRef, useState } from 'react';
 // Import constants
 import { ALIGN_RANGE, Cat, GalleryRange, GALLERY_RANGE, StatName, STAT_NAMES, STAT_RANGE } from '../constants/cats';
 // Import components
@@ -12,7 +12,17 @@ const Profile = (props: {cat: Cat}) => {
     const [popHeader, setPopHeader] = useState(false);
     const [scrollTop, setScrollTop] = useState(0);
     const [infoTrigger, setInfotrigger] = useState<'hover' | 'focus'>('hover');
-    const [selectedImage, setSelectedImage] = useState<GalleryRange>('one');
+    const [selectedImage, setSelectedImage] = useState(0);
+    const [flashToggle, setFlashToggle] = useState<undefined | 'A' | 'B'>(undefined);
+    const [touchActive, setTouchActive] = useState(false);
+    const [touchPositionStart, setTouchPositionStart] = useState(0);
+    const [touchTimeStart, setTouchTimeStart] = useState(0);
+    const [touchPositionEnd, setTouchPositionEnd] = useState(0);
+    const [touchTimeEnd, setTouchTimeEnd] = useState(0);
+    // Reference Hooks
+    const galleryRef = useRef<HTMLDivElement>(null);
+    const statsRef = useRef<HTMLDivElement>(null);
+    const introRef = useRef<HTMLDivElement>(null);
     // Effect Hooks
     useEffect(() => {
         // Window scroll event
@@ -30,6 +40,46 @@ const Profile = (props: {cat: Cat}) => {
         setPopHeader(scrollTop > 0 || expand);
         setExpandHeader(expand);
     }
+    const handleJumpTo = (reference: RefObject<HTMLDivElement>) => {
+        if (reference.current != null) {
+            reference.current.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            })
+        }
+    }
+    const cycleGallery = (delta: number) => {
+        if (GALLERY_RANGE.length <= 0) return;
+        const modDelta = selectedImage + delta;
+        const finalDelta =
+            (modDelta < 0) ? GALLERY_RANGE.length - 1 :
+            (modDelta >= GALLERY_RANGE.length) ? 0 :
+            modDelta;
+        setSelectedImage(finalDelta);
+        setFlashToggle((flashToggle === 'A') ? 'B' : 'A');
+    }
+    const handleTouchStart = (event: TouchEvent) => {
+        if (touchActive) return;
+        setTouchActive(true);
+        setTouchPositionStart(event.targetTouches[0].clientX);
+        setTouchTimeStart(Date.now());
+    }
+    const handleTouchMove = (event: TouchEvent) => {
+        if (touchActive === false) return;
+        setTouchPositionEnd(event.targetTouches[0].clientX);
+        setTouchTimeEnd(Date.now());
+        if (Math.abs(touchPositionEnd - touchPositionStart) >= 250 && (touchTimeEnd - touchTimeStart) <= 250) {
+            cycleGallery((touchPositionEnd - touchPositionStart > 0) ? 1 : -1);
+            setTouchActive(false);
+        }
+    }
+    const handleTouchEnd = () => {
+        if (touchActive === false) return;
+        if (Math.abs(touchPositionEnd - touchPositionStart) >= 250 && (touchTimeEnd - touchTimeStart) <= 250) {
+            cycleGallery((touchPositionEnd - touchPositionStart > 0) ? 1 : -1);
+        }
+        setTouchActive(false);
+    }
     // Render
     return (
         <>
@@ -43,6 +93,7 @@ const Profile = (props: {cat: Cat}) => {
                     className="header__button"
                     tabIndex={(expandHeader ? 0 : -1)}
                     disabled={!expandHeader}
+                    onClick={() => {handleJumpTo(introRef)}}
                     >
                     <svg className="header__svg" width="16" height="18" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd" d="M0.318191 7.04843L7.23182 0.31012C7.65607
@@ -193,6 +244,7 @@ const Profile = (props: {cat: Cat}) => {
                         className="header__button"
                         tabIndex={(expandHeader || scrollTop > 0) ? 0 : -1}
                         disabled={(expandHeader || scrollTop > 0) === false}
+                        onClick={() => {handleJumpTo(introRef)}}
                         >
                         <svg className="header__svg" width="16" height="18" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M0.318191 7.04843L7.23182 0.31012C7.65607
@@ -214,11 +266,12 @@ const Profile = (props: {cat: Cat}) => {
                         <title id="menuLabel">Menu</title>
                         <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>
                     </svg>
+                    Menu
                 </button>
             </div>
         </header>
         {/* INTRO Block */}
-        <section className="intro">
+        <section className="intro" ref={introRef}>
             <div className="intro__fade">
                 <img
                     className="intro__image"
@@ -239,13 +292,13 @@ const Profile = (props: {cat: Cat}) => {
                         return <p className="intro__paragraph" key={paragraph}>{paragraph}</p>;
                     })}
                 </div>
-                <button className="intro__button">
+                <button className="intro__button" onClick={() => {handleJumpTo(galleryRef)}}>
                     View Gallery
                 </button>
             </main>
         </section>
         {/* STATS Block */}
-        <section className="stats">
+        <section className="stats" ref={statsRef}>
             {/* Cosmetic background */}
             <div className="stats__background">
                 <svg className="stats__print" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -279,13 +332,14 @@ const Profile = (props: {cat: Cat}) => {
                     </g>
                 </svg>
             </div>
-            <button className="stats__jump">
+            <button className="stats__jump" onClick={() => {handleJumpTo(statsRef)}}>
                 <svg className="stats__arrow" width="16" height="18" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M0.318191 7.04843L7.23182 0.31012C7.65607 -0.103376
                     8.34393 -0.103376 8.76818 0.31012L15.6818 7.04843C16.1061 7.46193 16.1061 8.13234 15.6818 8.54584C15.2576
                     8.95933 14.5697 8.95933 14.1454 8.54584L9.08637 3.61505V18H6.91363V3.61505L1.85455 8.54584C1.4303 8.95933
                     0.742446 8.95933 0.318191 8.54584C-0.106064 8.13234 -0.106064 7.46193 0.318191 7.04843Z" />
                 </svg>
+                Jump to Stats
             </button>
             <p className="stats__instruction">Touch or hover a stat for more info</p>
             <div className="stats__flex">
@@ -368,9 +422,14 @@ const Profile = (props: {cat: Cat}) => {
             </div>
         </section>
         {/* GALLERY Block */}
-        <section className="gallery">
+        <section className="gallery" ref={galleryRef}>
             <div className="gallery__background"></div>
-            <div className="gallery__flex">
+            <div
+                className="gallery__flex"
+                onTouchStart={(event) => handleTouchStart(event)}
+                onTouchMove={(event) => {handleTouchMove(event)}}
+                onTouchEnd={() => handleTouchEnd()}
+                >
                 {/* Title - Only visible on small screens */}
                 <h2 className="gallery__titleTop">
                     G<span className="gallery__highlight">a</span>llery
@@ -381,11 +440,11 @@ const Profile = (props: {cat: Cat}) => {
                     <h2 className="gallery__titleMiddle">
                         G<span className="gallery__highlight">a</span>llery
                     </h2>
-                    {GALLERY_RANGE.map((area: GalleryRange) => { return (
+                    {GALLERY_RANGE.map((area: GalleryRange, index: number) => { return (
                         <button
-                            className={'gallery__item' + (area === selectedImage ? ' gallery__item_selected' : '')}
+                            className={'gallery__item' + (index === selectedImage ? ' gallery__item_selected' : '')}
                             key={area}
-                            onClick={() => {setSelectedImage(area)}}
+                            onClick={() => {setSelectedImage(index); setFlashToggle((flashToggle === 'A') ? 'B' : 'A');}}
                             style={{gridArea: area}}
                             >
                             <img
@@ -397,19 +456,19 @@ const Profile = (props: {cat: Cat}) => {
                     );})}
                 </div>
                 {/* Image display - Visible on any screen */}
-                <div className="gallery__display">
+                <div className={'gallery__display' + (flashToggle ? (' gallery__display_toggle_' + flashToggle) : '')}>
                     <img
                         className="gallery__image"
-                        src={props.cat.gallery[selectedImage].image}
-                        alt={props.cat.gallery[selectedImage].alt['pt']}
+                        src={props.cat.gallery[GALLERY_RANGE[selectedImage]].image}
+                        alt={props.cat.gallery[GALLERY_RANGE[selectedImage]].alt['pt']}
                     />
                 </div>
                 {/* Image navigation - Only visible on small screens */}
                 <div className="gallery__nav">
-                    <button className="gallery__button gallery__button_left">
+                    <button className="gallery__button gallery__button_left" onClick={() => {cycleGallery(-1)}}>
                         Back
                     </button>
-                    <button className="gallery__button gallery__button_right">
+                    <button className="gallery__button gallery__button_right" onClick={() => {cycleGallery(1)}}>
                         Next
                     </button>
                 </div>
@@ -509,7 +568,7 @@ const Profile = (props: {cat: Cat}) => {
                         </a>
                     </nav>
                 </div>
-                <button className="footer__back">
+                <button className="footer__back" onClick={() => {handleJumpTo(introRef)}}>
                     <svg className="footer__backSvg" width="16" height="18" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd" d="M0.318191 7.04843L7.23182 0.31012C7.65607
                         -0.103376 8.34393 -0.103376 8.76818 0.31012L15.6818 7.04843C16.1061 7.46193 16.1061 8.13234
