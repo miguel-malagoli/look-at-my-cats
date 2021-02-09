@@ -386,8 +386,8 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         tabIndex={0}
                         >
                         <div className="stats__grid">
-                            {ALIGN_RANGE.map((alignX: number) => { return (
-                                ALIGN_RANGE.map((alignY: number) => { return (
+                            {ALIGN_RANGE.map((alignY: number) => { return (
+                                ALIGN_RANGE.map((alignX: number) => { return (
                                     <span
                                         className={'stats__alignDot' +
                                         (alignX === props.cat.alignment.x ? ' stats__alignDot_matchX' : '') +
