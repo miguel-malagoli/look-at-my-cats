@@ -1055,10 +1055,13 @@ a, a:visited {
         --a-name-size: min(32px, 6vw);
         flex: 0 0 100%;
         max-width: var(--stat-small-width);
+        // Variables used to avoid parser error
+        --parse-fix: calc((var(--a-dot-size) * 3) + calc(var(--a-dot-space) * 2));
+        --parse-fix2: calc((var(--a-label-size) * var(--a-label-height)) + (var(--a-name-size) * (var(--a-label-height) + var(--a-label-margin))));
         height: calc(
             max(
-                calc((var(--a-dot-size) * 3) + (var(--a-dot-space) * 2)),
-                calc((var(--a-label-size) * var(--a-label-height)) + (var(--a-name-size) * (var(--a-label-height) + var(--a-label-margin))))
+                var(--parse-fix),
+                var(--parse-fix2)
             ) +
             (var(--a-info-max-lines) * var(--a-info-height) * 1em) +
             (var(--a-info-margin) * 1em) +
