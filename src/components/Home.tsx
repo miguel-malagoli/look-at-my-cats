@@ -1,12 +1,15 @@
 // Import React
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 // Import constants
 import CATS, { Cat } from '../constants/cats';
+import LangContext, { HOME_TEXT } from '../constants/lang';
 // Import components
 import Logo from './Logo';
 
 // Home component
 const Home = (props: {handleCat: (index: number) => void}) => {
+    // Context Hooks
+    const lang = useContext(LangContext);
     // State Hooks
     const [hoverItem, setHoverItem] = useState(-1);
     // Render
@@ -21,8 +24,10 @@ const Home = (props: {handleCat: (index: number) => void}) => {
                 />
             </div>
             <h1 className={'home__prompt' + ((hoverItem < 0 || hoverItem >= CATS.length) ? '' : ' home__prompt_hidden')}>
-                Which <span className="home__highlight">cat</span> will
-                you <span className="home__highlight">look at?</span>
+                {HOME_TEXT[lang].prompt.first + ' '}
+                <span className="home__highlight">{HOME_TEXT[lang].prompt.second + ' '}</span>
+                {HOME_TEXT[lang].prompt.third + ' '}
+                <span className="home__highlight">{HOME_TEXT[lang].prompt.fourth}</span>
             </h1>
             <div className="home__feedback">
                 {CATS.map((cat: Cat, index: number) => { return (
@@ -49,7 +54,7 @@ const Home = (props: {handleCat: (index: number) => void}) => {
                             <img
                                 className="home__photo"
                                 src={cat.profileImg1}
-                                alt={cat.name}
+                                alt={cat.profileAlt1[lang]}
                             />
                         </button>
                         <div className="home__fade">

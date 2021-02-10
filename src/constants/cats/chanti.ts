@@ -10,6 +10,7 @@ import gallery6 from '../../images/chanti/chanti10-01.jpg';
 
 const CHANTI: Cat = {
     name: "Chanti",
+    pronoun: "her",
     profileImg1: profileImg1,
     profileAlt1: {
         ['pt']: "Chanti, branca, redonda, macia e de olhinhos azuis",

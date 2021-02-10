@@ -1,11 +1,14 @@
 // Import React
-import React, { RefObject, TouchEvent, useEffect, useRef, useState } from 'react';
+import React, { RefObject, TouchEvent, useContext, useEffect, useRef, useState } from 'react';
 // Import constants
 import { ALIGN_RANGE, Cat, GalleryRange, GALLERY_RANGE, StatName, STAT_NAMES, STAT_RANGE } from '../constants/cats';
+import LangContext, { LangOptions, PROFILE_TEXT } from '../constants/lang';
 // Import components
 import Logo from './Logo';
 
-const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
+const Profile = (props: {cat: Cat, deselect: (index: undefined) => void, setLanguage: (lang: LangOptions) => void}) => {
+    // Context Hooks
+    const lang = useContext(LangContext);
     // State Hooks
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandLang, setExpandLang] = useState(false);
@@ -102,7 +105,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         3.61505V18H6.91363V3.61505L1.85455 8.54584C1.4303 8.95933 0.742446 8.95933 0.318191
                         8.54584C-0.106064 8.13234 -0.106064 7.46193 0.318191 7.04843Z" />
                     </svg>
-                    <p className="header__buttonText">Back to Top</p>
+                    <p className="header__buttonText">{PROFILE_TEXT[lang].backTop}</p>
                 </button>
                 <button
                     className="header__button"
@@ -114,7 +117,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         <path d="M17.5 10.8333V19.1666H12.5V14.1666H7.5V19.1666H2.5V10.8333H0L10 0.833313L20
                         10.8333H17.5ZM16.6667 5.91081V1.66665H14.1667V3.41081L16.6667 5.91081Z" />
                     </svg>
-                    <p className="header__buttonText">Back to Home</p>
+                    <p className="header__buttonText">{PROFILE_TEXT[lang].backHome}</p>
                 </button>
                 <button
                     className="header__button"
@@ -146,7 +149,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         15.0609 22 14.0427ZM17.5533 16.3636L17.1353 15.2091H15.2451L14.8317 16.3636H13.75L15.6741
                         11.3636H16.6833L18.6001 16.3636H17.5533Z" />
                     </svg>
-                    <p className="header__buttonText">Language</p>
+                    <p className="header__buttonText">{PROFILE_TEXT[lang].language}</p>
                     <svg className={'header__drop' + (expandLang ? ' header__drop_open' : '')}
                     width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 9L0.0717972 -1.30507e-06L13.9282 -9.36995e-08L7 9Z"/>
@@ -157,6 +160,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         className="header__lang"
                         tabIndex={(expandLang ? 0 : -1)}
                         disabled={!expandLang}
+                        onClick={() => {props.setLanguage('pt')}}
                         >
                         Português
                     </button>
@@ -164,6 +168,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         className="header__lang"
                         tabIndex={(expandLang ? 0 : -1)}
                         disabled={!expandLang}
+                        onClick={() => {props.setLanguage('en')}}
                         >
                         English
                     </button>
@@ -209,14 +214,14 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                             15.0609 22 14.0427ZM17.5533 16.3636L17.1353 15.2091H15.2451L14.8317 16.3636H13.75L15.6741
                             11.3636H16.6833L18.6001 16.3636H17.5533Z" />
                         </svg>
-                        <p className="header__buttonText">Language</p>
+                        <p className="header__buttonText">{PROFILE_TEXT[lang].language}</p>
                         <svg className="header__drop" width="14" height="9" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7 9L0.0717972 -1.30507e-06L13.9282 -9.36995e-08L7 9Z"/>
                         </svg>
                         <div className={'header__langFlex' + (expandLang ? ' header__langFlex_open' : '')}>
                             <button
                                 className="header__lang"
-                                onClick={() => {console.log('yo')}}
+                                onClick={() => {props.setLanguage('pt')}}
                                 disabled={!expandLang}
                                 tabIndex={expandLang ? 0 : -1}
                                 >
@@ -224,6 +229,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                             </button>
                             <button
                                 className="header__lang"
+                                onClick={() => {props.setLanguage('en')}}
                                 disabled={!expandLang}
                                 tabIndex={expandLang ? 0 : -1}
                                 >
@@ -241,7 +247,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                             <path d="M17.5 10.8333V19.1666H12.5V14.1666H7.5V19.1666H2.5V10.8333H0L10 0.833313L20
                             10.8333H17.5ZM16.6667 5.91081V1.66665H14.1667V3.41081L16.6667 5.91081Z" />
                         </svg>
-                        <p className="header__buttonText">Back to Home</p>
+                        <p className="header__buttonText">{PROFILE_TEXT[lang].backHome}</p>
                     </button>
                     <button
                         className="header__button"
@@ -256,7 +262,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                             3.61505V18H6.91363V3.61505L1.85455 8.54584C1.4303 8.95933 0.742446 8.95933 0.318191
                             8.54584C-0.106064 8.13234 -0.106064 7.46193 0.318191 7.04843Z" />
                         </svg>
-                        <p className="header__buttonText">Back to Top</p>
+                        <p className="header__buttonText">{PROFILE_TEXT[lang].backTop}</p>
                     </button>
                 </div>
                 {/* Menu button - toggles header expansion */}
@@ -266,10 +272,10 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                     >
                     <svg className="header__svg" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                         aria-labelledby="menuLabel">
-                        <title id="menuLabel">Menu</title>
+                        <title id="menuLabel">{PROFILE_TEXT[lang].menu}</title>
                         <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>
                     </svg>
-                    Menu
+                    {PROFILE_TEXT[lang].menu}
                 </button>
             </div>
         </header>
@@ -279,7 +285,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                 <img
                     className="intro__image"
                     src={props.cat.profileImg1}
-                    alt={props.cat.profileAlt1['pt']}
+                    alt={props.cat.profileAlt1[lang]}
                 />
             </div>
             <main className="intro__main">
@@ -291,12 +297,12 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                     {props.cat.name.substr(2)}
                 </h1>
                 <div className="intro__text">
-                    {props.cat.introduction['pt'].map((paragraph: string) => {
+                    {props.cat.introduction[lang].map((paragraph: string) => {
                         return <p className="intro__paragraph" key={paragraph}>{paragraph}</p>;
                     })}
                 </div>
                 <button className="intro__button" onClick={() => {handleJumpTo(galleryRef)}}>
-                    View Gallery
+                    {PROFILE_TEXT[lang].jumpGallery}
                 </button>
             </main>
         </section>
@@ -342,9 +348,9 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                     8.95933 14.5697 8.95933 14.1454 8.54584L9.08637 3.61505V18H6.91363V3.61505L1.85455 8.54584C1.4303 8.95933
                     0.742446 8.95933 0.318191 8.54584C-0.106064 8.13234 -0.106064 7.46193 0.318191 7.04843Z" />
                 </svg>
-                Jump to Stats
+                {PROFILE_TEXT[lang].jumpStats}
             </button>
-            <p className="stats__instruction">Touch or hover a stat for more info</p>
+            <p className="stats__instruction">{PROFILE_TEXT[lang].statHint}</p>
             <div className="stats__flex">
                 {/* Attributes */}
                 <dl className="stats__scoreSheet">
@@ -356,7 +362,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                             tabIndex={0}
                             key={name}
                             >
-                            <dt className="stats__term">{name}</dt>
+                            <dt className="stats__term">{PROFILE_TEXT[lang].stats[name]}</dt>
                             <dd className="stats__value">
                                 {STAT_RANGE.map((stat: number) => { return (
                                     <span className={
@@ -372,7 +378,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                                 );})}
                             </dd>
                             <p className="stats__info">
-                                {props.cat.stats[name].description['pt']}
+                                {props.cat.stats[name].description[lang]}
                             </p>
                         </div>
                     );})}
@@ -397,9 +403,18 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                                 );})
                             );})}
                         </div>
-                        <label className="stats__alignLabel">Alignment</label>
-                        <span className="stats__alignName">Lawful Neutral</span>
-                        <p className="stats__alignText">{props.cat.alignment.description['pt']}</p>
+                        <label className="stats__alignLabel">{PROFILE_TEXT[lang].alignment.title}</label>
+                        <span className="stats__alignName">
+                            {
+                            (props.cat.alignment.x === 1 && props.cat.alignment.y === 1) ?
+                                PROFILE_TEXT[lang].alignment.neutral[props.cat.pronoun] :
+                                (PROFILE_TEXT[lang].alignment.x[props.cat.alignment.x][props.cat.pronoun] +
+                                ' ' +
+                                PROFILE_TEXT[lang].alignment.y[props.cat.alignment.y][props.cat.pronoun]
+                                )
+                            }
+                        </span>
+                        <p className="stats__alignText">{props.cat.alignment.description[lang]}</p>
                     </div>
                 </div>
                 {/* Image */}
@@ -407,7 +422,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                     <img
                         className="stats__image"
                         src={props.cat.profileImg2}
-                        alt={props.cat.profileAlt2['pt']}
+                        alt={props.cat.profileAlt2[lang]}
                     />
                 </div>
                 {/* Ability */}
@@ -418,8 +433,8 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         onFocus={() => {setInfotrigger('focus')}}
                         tabIndex={0}
                         >
-                        <label className="stats__abilityName">Ability - {props.cat.ability['pt'].name}</label>
-                        <p className="stats__abilityText">{props.cat.ability['pt'].description}</p>
+                        <label className="stats__abilityName">{PROFILE_TEXT[lang].ability} - {props.cat.ability[lang].name}</label>
+                        <p className="stats__abilityText">{props.cat.ability[lang].description}</p>
                     </div>
                 </div>
             </div>
@@ -435,13 +450,21 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                 >
                 {/* Title - Only visible on small screens */}
                 <h2 className="gallery__titleTop">
-                    G<span className="gallery__highlight">a</span>llery
+                    {PROFILE_TEXT[lang].gallery.substr(0, 1)}
+                    <span className="gallery__highlight">
+                        {PROFILE_TEXT[lang].gallery.substr(1, 1)}
+                    </span>
+                    {PROFILE_TEXT[lang].gallery.substr(2)}
                 </h2>
-                <p className="gallery__subtitle">Swipe or use the buttons to cycle images</p>
+                <p className="gallery__subtitle">{PROFILE_TEXT[lang].galleryHint}</p>
                 {/* Item grid - Only visible on large screens */}
                 <div className="gallery__grid">
                     <h2 className="gallery__titleMiddle">
-                        G<span className="gallery__highlight">a</span>llery
+                        {PROFILE_TEXT[lang].gallery.substr(0, 1)}
+                        <span className="gallery__highlight">
+                            {PROFILE_TEXT[lang].gallery.substr(1, 1)}
+                        </span>
+                        {PROFILE_TEXT[lang].gallery.substr(2)}
                     </h2>
                     {GALLERY_RANGE.map((area: GalleryRange, index: number) => { return (
                         <button
@@ -453,7 +476,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                             <img
                                 className="gallery__preview"
                                 src={props.cat.gallery[area].image}
-                                alt={props.cat.gallery[area].alt['pt']}
+                                alt={props.cat.gallery[area].alt[lang]}
                             />
                         </button>
                     );})}
@@ -463,16 +486,16 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                     <img
                         className="gallery__image"
                         src={props.cat.gallery[GALLERY_RANGE[selectedImage]].image}
-                        alt={props.cat.gallery[GALLERY_RANGE[selectedImage]].alt['pt']}
+                        alt={props.cat.gallery[GALLERY_RANGE[selectedImage]].alt[lang]}
                     />
                 </div>
                 {/* Image navigation - Only visible on small screens */}
                 <div className="gallery__nav">
                     <button className="gallery__button gallery__button_left" onClick={() => {cycleGallery(-1)}}>
-                        Back
+                        {PROFILE_TEXT[lang].buttonBack}
                     </button>
                     <button className="gallery__button gallery__button_right" onClick={() => {cycleGallery(1)}}>
-                        Next
+                        {PROFILE_TEXT[lang].buttonNext}
                     </button>
                 </div>
             </div>
@@ -500,12 +523,12 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         colorTwo="light"
                         alt="Look At My Cats"
                     />
-                    <span className="footer__credit">by Miguel Malagoli</span>
-                    <span className="footer__check">Check out the project on...</span>
+                    <span className="footer__credit">{PROFILE_TEXT[lang].by} Miguel Malagoli</span>
+                    <span className="footer__check">{PROFILE_TEXT[lang].check}</span>
                     <nav className="footer__nav">
                         <a
                             className="footer__link"
-                            href="https://linkedin.com"
+                            href="https://www.behance.net/miguelmalagoli"
                             target="_blank"
                             tabIndex={-1}
                             >
@@ -526,7 +549,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         </a>
                         <a
                             className="footer__link"
-                            href="https://linkedin.com"
+                            href="https://github.com/miguel-malagoli"
                             target="_blank"
                             tabIndex={-1}
                             >
@@ -549,7 +572,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         </a>
                         <a
                             className="footer__link"
-                            href="https://linkedin.com"
+                            href="https://www.figma.com/file/e3I92ifyUl671IQbMGVd4c/Look-At-My-Cats?node-id=0%3A1"
                             target="_blank"
                             tabIndex={-1}
                             >
@@ -579,7 +602,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void}) => {
                         3.61505V18H6.91363V3.61505L1.85455 8.54584C1.4303 8.95933 0.742446 8.95933 0.318191
                         8.54584C-0.106064 8.13234 -0.106064 7.46193 0.318191 7.04843Z" />
                     </svg>
-                    <span className="footer__backLabel">Back to Top</span>
+                    <span className="footer__backLabel">{PROFILE_TEXT[lang].backTop}</span>
                 </button>
             </div>
         </footer>

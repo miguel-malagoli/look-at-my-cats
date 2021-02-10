@@ -10,6 +10,7 @@ import gallery6 from '../../images/bonnie/bonnie7-01.jpg';
 
 const BONNIE: Cat = {
     name: "Bonnie",
+    pronoun: "her",
     profileImg1: profileImg1,
     profileAlt1: {
         ['pt']: "Bonnie, de pêlo branco, marrom e preto e olhos verdes",

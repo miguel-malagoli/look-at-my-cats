@@ -2,10 +2,11 @@ import KIWI from "./kiwi";
 import MUFFIN from "./muffin";
 import CHANTI from "./chanti";
 import BONNIE from "./bonnie";
-import { LangOptions } from "../lang";
+import { LangOptions, Pronouns } from "../lang";
 
 interface Cat {
     name: string,
+    pronoun: Pronouns
     profileImg1: string,
     profileAlt1: {
         [key in LangOptions]: string

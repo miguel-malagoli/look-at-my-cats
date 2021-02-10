@@ -10,6 +10,7 @@ import gallery6 from '../../images/kiwi/kiwi11-01.jpg';
 
 const KIWI: Cat = {
     name: "Kiwi",
+    pronoun: "her",
     profileImg1: profileImg1,
     profileAlt1: {
         ['pt']: "Kiwi, de olhos verdes, pêlo marrom e olhar distraído",

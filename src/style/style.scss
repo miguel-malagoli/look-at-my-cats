@@ -1052,7 +1052,7 @@ a, a:visited {
         --a-label-size: min(24px, 6vw);
         --a-label-height: 1;
         --a-label-margin: 0.25;
-        --a-name-size: min(32px, 7.5vw);
+        --a-name-size: min(32px, 6vw);
         flex: 0 0 100%;
         max-width: var(--stat-small-width);
         height: calc(
@@ -1572,7 +1572,7 @@ a, a:visited {
         background-color: transparent;
         text-transform: uppercase;
         border: 2px solid rgb(var(--theme-light));
-        font-size: 20px;
+        font-size: 14px;
         font-weight: 300;
         line-height: 40px;
         cursor: pointer;

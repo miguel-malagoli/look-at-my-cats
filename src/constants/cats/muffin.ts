@@ -10,6 +10,7 @@ import gallery6 from '../../images/muffin/muffin10-01.jpg';
 
 const MUFFIN: Cat = {
     name: "Muffin",
+    pronoun: "him",
     profileImg1: profileImg1,
     profileAlt1: {
         ['pt']: "Muffin, o pequeno gato branco e amarelo de olhos verdes",
