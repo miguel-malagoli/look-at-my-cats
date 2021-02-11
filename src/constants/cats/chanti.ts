@@ -27,7 +27,7 @@ const CHANTI: Cat = {
             "Ela é a quem mais aproveita o luxo da vida de gata, comendo e dormindo o dia inteiro. Mas ela gosta muito de ser vista fazendo essas coisas, e a casa inteira pode ouvir ela chamando alguém para olhá-la comendo orgulhosa."
         ],
         ['en']: [
-            "Chanti was the onlyone to join the family still a kitten - right after she was born on the roof! She is shy and get scared easily by cats and humans both, but has always had a strong bond with Muffin, with whom she spends most of her time. She doesn't really like Bonnie, though, so the two keep their distance",
+            "Chanti was the only one to join the family still a kitten - right after she was born on the roof! She is shy and get scared easily by cats and humans both, but has always had a strong bond with Muffin, with whom she spends most of her time. She doesn't really like Bonnie, though, so the two keep their distance",
             "She is the one who gets the most out the luxurious cat life, eating and sleeping all day. But she really likes to be seen doing those things, and the whole house can hear her calling for someone to watch her eat, all proud of herself."
         ]
     },
