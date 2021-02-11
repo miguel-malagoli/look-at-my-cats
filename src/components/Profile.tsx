@@ -528,7 +528,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void, setLang
                     <nav className="footer__nav">
                         <a
                             className="footer__link"
-                            href="https://www.behance.net/miguelmalagoli"
+                            href="https://www.behance.net/gallery/113311895/Look-At-My-Cats"
                             target="_blank"
                             tabIndex={-1}
                             >
@@ -549,7 +549,7 @@ const Profile = (props: {cat: Cat, deselect: (index: undefined) => void, setLang
                         </a>
                         <a
                             className="footer__link"
-                            href="https://github.com/miguel-malagoli"
+                            href="https://github.com/miguel-malagoli/look-at-my-cats"
                             target="_blank"
                             tabIndex={-1}
                             >
